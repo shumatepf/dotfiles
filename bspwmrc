@@ -1,0 +1,37 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+pkill compton
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+feh --bg-fill /home/peter/Pictures/nature_retromountain.jpg
+
+#compton -b --config ~/.config/compton.conf
+
+compton --blur-background --blur-method kawase --blur-strength 12 --opacity-rule 90:'class_g="Termite"' --opacity-rule 60:'class_g="Thunar"' --opacity-rule 90:'class_g="rofi"' --opacity-rule 70:'class_g="Sublime_text"' --opacity-rule 85:'class_g="Brave-browser"' -f --backend glx
+
+
+bspc config focus_follows_pointer true
+
+#/home/peter/.config/polybar/launch.sh
+polybar def
+
+#bindsym XF86MonBrightnessUp exec brightlight -i 100
+#bindsym XF86MonBrightnessDown exec brightlight -d 100
+
+export _JAVA_AWT_WM_NONREPARENTING=1
