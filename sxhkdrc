@@ -1,0 +1,89 @@
+# Reload functions
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + alt + r
+	bspc wm -r
+
+# non wm
+super + Return
+	termite
+
+super + shift + Return
+	 termite --directory="`xcwd`"
+
+super + p
+	firefox
+
+super + o
+	/home/peter/myscripts/sxhkd_help
+
+# key bindings
+{XF86MonBrightnessDown,XF86MonBrightnessUp}
+	/home/peter/brightlight/brightlight {-d,-i} 25
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+# bspwm stuff
+super + l
+	bspc desktop --focus next
+
+super + h
+	bspc desktop --focus prev
+
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+super + ctrl + space
+	bspc node -p cancel
+
+super + ctrl + b
+	bspc node -s biggest.local
+
+super + ctrl + l
+	bspc node -s smallest.local
+
+super + {1,2,3,4,5,6,7,8,9,0}
+	bspc desktop --focus ^{1,2,3,4,5,6,7,8,9,10}
+
+super + shift + {1,2,3,4,5,6,7,8,9,0}
+	bspc node --to-desktop ^{1,2,3,4,5,6,7,8,9,10}
+
+super + r : {Left, Right}
+	INC={-10,+10}; bspc node @east -r $INC || bspc node @west -r $INC
+
+super + r : {Down, Up}
+	INC={+10,-10}; bspc node @north -r $INC || bspc node @south -r $INC
+
+super + {t, shift + t, s, f}
+	bspc node -t {tiled, psuedo-tiled, floating, fullscreen}
+
+super + shift + c
+	bspc node -c
+
+## floating window
+# move floating window
+super + shift + {h,j,k,l}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# expand a floating window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a floating window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+

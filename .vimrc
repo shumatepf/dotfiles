@@ -1,34 +1,35 @@
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-set term=xterm-256color
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" required
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" color theme plugins
-Plugin 'szorfein/fromthehell.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'flazz/vim-colorschemes'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-" status line
-Plugin 'itchyny/lightline.vim'
+" You Complete Me
+Plugin 'Valloric/YouCompleteMe'
 
-" wal for vim - to fix tmux
-Plugin 'dylanaraps/wal.vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-" python indentation
-Plugin 'Vimjas/vim-python-pep8-indent'
-
-" javascript format
-Plugin 'maksimr/vim-jsbeautify'
-
-call vundle#end()
-filetype plugin indent on
+"set rtp+=~/.vim/bundle/YouCompleteMe
 
 "line numbers
 set number
@@ -37,7 +38,7 @@ set number
 syntax on
 
 " theme
-colorscheme wal
+" colorscheme wal
 
 "tab spaces
 set tabstop=4
@@ -50,7 +51,7 @@ set autoindent
 
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 sts=2 expandtab
-autocmd Filetype c setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype c setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
 "line <= 80 characters
@@ -62,12 +63,4 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
 "disables redrawing of screen occasionaly
 set lazyredraw
-
-"enable lightline
-set laststatus=2
-
-"disable default statusline
-set noshowmode
-
-let g:lightline = { 'colorscheme': 'seoul256'}
 
