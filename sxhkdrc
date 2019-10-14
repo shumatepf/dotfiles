@@ -71,7 +71,7 @@ super + r : {Down, Up}
 super + {t, shift + t, s, f}
 	bspc node -t {tiled, psuedo-tiled, floating, fullscreen}
 
-super + shift + c
+super + w
 	bspc node -c
 
 ## floating window

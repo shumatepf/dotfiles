@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp ~/.config/bspwm/bspwmrc .
+cp ~/.config/sxhkd/sxhkdrc .
+cp ~/.vimrc .
+cp ~/.zshrc .
