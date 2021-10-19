@@ -25,6 +25,28 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " You Complete Me
 Plugin 'Valloric/YouCompleteMe'
 
+" Theme Install
+Plugin 'morhetz/gruvbox'
+
+" Python Syntax
+Plugin 'vim-python/python-syntax'
+
+" Nerd Tree - show files on left
+Plugin 'preservim/nerdtree'
+
+" Git change highlighting
+Plugin 'mhinz/vim-signify'
+
+" Status line
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Nerd Commenter - group comments
+Plugin 'preservim/nerdcommenter'
+
+" Auto pair brackets etc.
+Plugin 'jiangmiao/auto-pairs'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -38,7 +60,9 @@ set number
 syntax on
 
 " theme
-" colorscheme wal
+" colorscheme gruvbox 
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
 
 "tab spaces
 set tabstop=4
@@ -48,6 +72,23 @@ set shiftwidth=4
 
 "auto indent
 set autoindent
+
+set expandtab
+
+set hlsearch
+
+set incsearch
+
+set ignorecase
+
+"remove default status display
+set noshowmode
+
+"python syntax highlighting
+let g:python_highlight_all = 1
+
+"status line theme
+let g:airline_theme='ravenpower'
 
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 sts=2 expandtab
