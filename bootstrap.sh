@@ -8,7 +8,7 @@ initial_setup () {
 
 link () {
     for file in $( ls -A) ; do
-	    ln -v "$PWD/$file" "$HOME" || true
+	    ln -vf "$PWD/$file" "$HOME" || true
     done
 }
 
@@ -23,6 +23,7 @@ setup_vim () {
 
 setup_zsh () {
 	chsh -s $(which zsh)
+	sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 }
 
 
