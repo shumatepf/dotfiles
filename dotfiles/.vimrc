@@ -94,6 +94,8 @@ autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype haskell setlocal ts=2 sw=2 sts=2 expandtab
 autocmd Filetype c setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType json setlocal ts=2 sts=2 sw=2 expandtab
 
 "line <= 80 characters
 " set textwidth=80
